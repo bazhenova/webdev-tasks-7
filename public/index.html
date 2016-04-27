@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hryunogochi</title>
+        <link rel="stylesheet" href="/index.css">
+    </head>
+    <body>
+        <div class="img">
+            <svg class="pig" width="400" height="400">
+                <path d="M 245,220 L 265,210" fill="#ffd0c9" stroke="#ed8a7b" stroke-width="2" />
+                <circle r="5" cx="265" cy="215" fill="#ffd0c9" stroke="#ed8a7b" />
+                <circle r="3" cx="265" cy="215" fill="#fff" stroke="#ed8a7b" />
+                <path d="M 266,210 L 280,215" fill="#ffd0c9" stroke="#ed8a7b" stroke-width="2" />
+                <ellipse rx="60" ry="70" cx="200" cy="180" fill="#ffd0c9" stroke="#ed8a7b" />
+                <circle r="50" cx="200" cy="100" fill="#ffd0c9" stroke="#ed8a7b" />
+                <ellipse rx="15" ry="10" cx="200" cy="115" fill="#ffd0c9" stroke="#ed8a7b" />
+                <ellipse rx="2" ry="4" cx="195" cy="115" stroke="#ed8a7b" />
+                <ellipse rx="2" ry="4" cx="205" cy="115" stroke="#ed8a7b" />
+                <circle r="5" cx="180" cy="90" fill="#000" />
+                <circle r="5" cx="220" cy="90" fill="#000" />
+                <path d="M 185,130 Q 200,140 215,130" fill="#d4402b" />
+                <path d="M 150,150 L 120,120 117,130 105,130 145,170" fill="#ffd0c9" stroke="#ed8a7b" />
+                <path d="M 250,150 L 280,120 283,130 295,130 255,170" fill="#ffd0c9" stroke="#ed8a7b" />
+                <path d="M 160,225 L 160,290 170,280 180,290 180,240" fill="#ffd0c9" stroke="#ed8a7b" />
+                <path d="M 240,225 L 240,290 230,280 220,290 220,240" fill="#ffd0c9" stroke="#ed8a7b" />
+                <path d="M 165,70 Q 140,40 140,90" fill="#ffd0c9" stroke="#ed8a7b" />
+                <path d="M 235,70 Q 260,40 260,90" fill="#ffd0c9" stroke="#ed8a7b" />
+            </svg>
+        </div>
+        <div class="state">
+            <div class="state__satiety">
+                Сытость: <span class="satiety__value">100</span>%
+            </div>
+            <div class="state__energy">
+                Энергия: <span class="energy__value">100</span>%
+            </div>
+            <div class="state__mood">
+                Настроение: <span class="mood__value">100</span>%
+            </div>
+            <label class="death death_invisible">Game over...</label>
+        </div>
+        <div class="buttons">
+            <input type="submit" value="New Game" class="buttons__start">
+            <input type="submit" value="Кормить" class="buttons__feed">
+            <input type="submit" value="Общение" class="buttons__speech">
+            <label class="speech__label speech__label_invisible">Поговори со мной!</label>
+        </div>
+        <label class="text"></label>
+
+        <script src='/process.js'></script>
+        <script src='/battery.js'></script>
+        <script src='/light.js'></script>
+        <script src='/visibility.js'></script>
+        <script src='/speech.js'></script>
+    </body>
+</html>

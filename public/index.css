@@ -1,0 +1,54 @@
+body
+{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.state
+{
+    margin: 10px;
+    font: 200% sans-serif;
+}
+
+.buttons
+{
+    width: 100%;
+}
+
+.state div
+{
+    margin: 10px;
+}
+
+.buttons__feed, .buttons__speech, .buttons__start
+{
+    padding: 20px;
+    background-color: #0f0;
+    margin: 10px;
+}
+
+.buttons__start
+{
+    background-color: #3396fb;
+}
+
+.img
+{
+    background-image: url(day.jpg);
+    width: 400px;
+    height: 400px;
+}
+
+.speech__label_invisible, .text_invisible, .death_invisible, .pig_invisible
+{
+    display: none;
+}
+
+.text
+{
+    width: 100%;
+    font: bold 300% sans-serif;
+}
