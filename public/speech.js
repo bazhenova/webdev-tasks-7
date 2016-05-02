@@ -1,5 +1,7 @@
 'use strict';
 
+var battery = navigator.getBattery();
+
 initSpeech();
 function initSpeech() {
     window.SpeechRecognition = window.SpeechRecognition ||
@@ -32,7 +34,8 @@ function initSpeech() {
             var deathLabel = document.querySelector('.death');
             var classList = Array.prototype.slice.call(deathLabel.classList);
             var death = classList.indexOf('death_invisible') === -1;
-            if (!isNaN(value) && value < 100 && !death) {
+            if (!isNaN(value) && value < 100 && !death && 
+                !document[hidden] && !battery.charging) {
                 mood.innerHTML = value + 1;
                 value += 1;
             } else {

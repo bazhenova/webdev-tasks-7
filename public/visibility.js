@@ -1,5 +1,9 @@
 'use strict';
 
+var energy = document.querySelector('.energy__value');
+var deathLabel = document.querySelector('.death');
+var battery = navigator.getBattery();
+
 initVisibility();
 function initVisibility() {
     var hidden = null;
@@ -29,12 +33,15 @@ function initVisibility() {
         if (!document[hidden]) {
             return;
         }
-        var energy = document.querySelector('.energy__value');
+        
         var value = parseInt(energy.textContent, 10);
         setInterval(function () {
-            if (!isNaN(value) && value < 100 && document[hidden]) {
-                energy.innerHTML = value + 1;
-                value += 1;
+            var deathClassList = Array.prototype.slice.call(deathLabel.classList);
+            if (deathClassList.indexOf('death_invisible') !== -1) {
+                if (!isNaN(value) && value < 100 && document[hidden]) {
+                    energy.innerHTML = value + 1;
+                    value += 1;
+                }
             }
         }, 1000);
     });

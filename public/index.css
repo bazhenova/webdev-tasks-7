@@ -3,7 +3,7 @@ body
     display: flex;
     width: 100%;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
 }
 
@@ -11,6 +11,9 @@ body
 {
     margin: 10px;
     font: 200% sans-serif;
+    margin-top: 100px;
+    width: 50%;
+    min-width: 100px;
 }
 
 .buttons
@@ -18,7 +21,7 @@ body
     width: 100%;
 }
 
-.state div
+.state__satiety, .state__energy, .state__mood
 {
     margin: 10px;
 }
@@ -51,4 +54,20 @@ body
 {
     width: 100%;
     font: bold 300% sans-serif;
+}
+
+.sound
+{
+    margin: 10px;
+}
+
+.sound__text
+{
+    font: 130% sans-serif;
+    padding: 5px;
+}
+
+.sound__volume
+{
+    margin-top: 10px;
 }
