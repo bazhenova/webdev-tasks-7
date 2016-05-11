@@ -1,9 +1,25 @@
 'use strict';
 
+var hidden = null;
+
+if ('hidden' in document) {
+    hidden = 'hidden';
+} else if ('mozHidden' in document) {
+    hidden = 'mozHidden';
+} else if ('webkitHidden' in document) {
+    hidden = 'webkitHidden';
+}
+
+if (!hidden) {
+    console.warn('Page Visibility is not supported!');
+}
+
 initBattery();
 function initBattery() {
     if (!navigator.getBattery) {
         console.log('Battery is not supported!');
+        var buttonFeed = document.querySelector('.buttons__feed');
+        buttons__feed.classList.remove('buttons__feed_hidden');
         return;
     }
 

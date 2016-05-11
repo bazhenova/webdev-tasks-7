@@ -24,7 +24,7 @@ if (!localStorage in window) {
 
 window.onbeforeunload = function() {
     if (!localStorage in window) {
-        console.log('localStorage is not supported!');
+        return;
     } else {
         localStorage.satiety = satiety.textContent;
         localStorage.energy = energy.textContent;
@@ -60,27 +60,26 @@ document.addEventListener('click', function(event) {
 });
 
 setInterval(function () {
-    var value1 = parseInt(satiety.textContent, 10);
-    if (!isNaN(value1) && value1 > 0 && !death) {
-        satiety.innerHTML = value1 - 1;
-        value1 -= 1;
+    var satietyValue = parseInt(satiety.textContent, 10);
+    if (!isNaN(satietyValue) && satietyValue > 0 && !death) {
+        satiety.innerHTML = satietyValue - 1;
+        satietyValue -= 1;
     }
 
-    var value2 = parseInt(energy.textContent, 10);
-    if (!isNaN(value2) && value2 > 0 && !death) {
-        energy.innerHTML = value2 - 1;
-        value2 -= 2;
+    var energyValue = parseInt(energy.textContent, 10);
+    if (!isNaN(energyValue) && energyValue > 0 && !death) {
+        energy.innerHTML = energyValue - 1;
+        energyValue -= 1;
     }
 
-    var value3 = parseInt(mood.textContent, 10);
-    if (!isNaN(value3) && value3 > 0 && !death) {
-        mood.innerHTML = value3 - 1;
-        value3 -= 1;
+    var moodValue = parseInt(mood.textContent, 10);
+    if (!isNaN(moodValue) && moodValue > 0 && !death) {
+        mood.innerHTML = moodValue - 1;
+        moodValue -= 1;
     }
-
-    if (value1 === 0 && value2 === 0 ||
-        value1 === 0 && value3 === 0 ||
-        value2 === 0 && value3 === 0) {
+    if ([satietyValue, energyValue, moodValue].filter(function (elem) {
+        return elem;
+    }).length < 2) {
         deathLabel.classList.remove('death_invisible');
         pig.classList.add('pig_invisible');
         img.style.backgroundImage = 'url(death.jpeg)';

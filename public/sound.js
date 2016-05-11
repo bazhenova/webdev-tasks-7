@@ -1,9 +1,12 @@
 'use strict';
 
-createjs.Sound.registerSound({src:'/hryu.mp3', id:'pig'});
+var player = document.querySelector('.player');
 var volume = document.querySelector('.sound__volume');
+var deathLabel = document.querySelector('.death');
 
 setInterval(function () {
-    var value = volume.value / 100;
-    createjs.Sound.play('pig').setVolume(value);
-}, 15000);
+    if (deathLabel.classList.contains('death_invisible')) {
+    	player.volume = volume.value / 100;
+    	player.play();
+    }
+}, 20000);

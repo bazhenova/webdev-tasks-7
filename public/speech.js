@@ -1,6 +1,20 @@
 'use strict';
 
 var battery = navigator.getBattery();
+var deathLabel = document.querySelector('.death');
+var hidden = null;
+
+if ('hidden' in document) {
+    hidden = 'hidden';
+} else if ('mozHidden' in document) {
+    hidden = 'mozHidden';
+} else if ('webkitHidden' in document) {
+    hidden = 'webkitHidden';
+}
+
+if (!hidden) {
+    console.warn('Page Visibility is not supported!');
+}
 
 initSpeech();
 function initSpeech() {
@@ -9,7 +23,6 @@ function initSpeech() {
 
     if (!window.SpeechRecognition) {
         console.warn('Speech Recognition is not supported!');
-
         return;
     }
 
@@ -20,10 +33,14 @@ function initSpeech() {
     
     var recognizer = new window.SpeechRecognition();
 
-    recognizer.lang = 'en-US';
+    recognizer.lang = 'ru';
     recognizer.continuous = true;
 
     speech.onclick = function () {
+        var death = !deathLabel.classList.contains('death_invisible');
+        if (death) {
+            return;
+        }
         recognizer.start();
         speechLabel.classList.remove('speech__label_invisible');
         text.innerHTML = '';
@@ -31,9 +48,7 @@ function initSpeech() {
         var value = parseInt(mood.textContent, 10);
 
         setInterval(function () {
-            var deathLabel = document.querySelector('.death');
-            var classList = Array.prototype.slice.call(deathLabel.classList);
-            var death = classList.indexOf('death_invisible') === -1;
+            death = !deathLabel.classList.contains('death_invisible');
             if (!isNaN(value) && value < 100 && !death && 
                 !document[hidden] && !battery.charging) {
                 mood.innerHTML = value + 1;

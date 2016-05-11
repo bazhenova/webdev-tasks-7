@@ -14,6 +14,7 @@ body
     margin-top: 100px;
     width: 50%;
     min-width: 100px;
+    padding-left: 0;
 }
 
 .buttons
@@ -21,12 +22,17 @@ body
     width: 100%;
 }
 
-.state__satiety, .state__energy, .state__mood
+.state__satiety,
+.state__energy,
+.state__mood,
+.death
 {
     margin: 10px;
 }
 
-.buttons__feed, .buttons__speech, .buttons__start
+.buttons__feed,
+.buttons__speech,
+.buttons__start
 {
     padding: 20px;
     background-color: #0f0;
@@ -45,7 +51,11 @@ body
     height: 400px;
 }
 
-.speech__label_invisible, .text_invisible, .death_invisible, .pig_invisible
+.speech__label_invisible,
+.text_invisible,
+.death_invisible,
+.pig_invisible,
+.player
 {
     display: none;
 }
@@ -70,4 +80,9 @@ body
 .sound__volume
 {
     margin-top: 10px;
+}
+
+.buttons__feed_hidden
+{
+    visibility: hidden;
 }
